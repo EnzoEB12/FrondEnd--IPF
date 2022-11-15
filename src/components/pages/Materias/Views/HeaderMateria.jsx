@@ -16,7 +16,7 @@ const HeaderMateria = ({descripcionMateria,profTitular,profAux, idMateria, rol, 
                       <li>
                         <h1>
                           <strong style={{ textTransform: "uppercase" }}>
-                            {descripcionMateria}
+                            {descripcionMateria ? descripcionMateria : null}
                           </strong>
                         </h1>
                       </li>
@@ -26,7 +26,7 @@ const HeaderMateria = ({descripcionMateria,profTitular,profAux, idMateria, rol, 
                           Profesor Titular:
                           <span>
                             {" "}
-                            {profTitular}
+                            {profTitular ? profTitular : null}
                           </span>
                         </a>
                       </li>
@@ -36,7 +36,7 @@ const HeaderMateria = ({descripcionMateria,profTitular,profAux, idMateria, rol, 
                           Profesor Auxiliar:
                           <span>
                             {" "}
-                            {profAux}
+                            {profAux ? profAux : null}
                           </span>
                         </a>
                       </li>
@@ -44,13 +44,13 @@ const HeaderMateria = ({descripcionMateria,profTitular,profAux, idMateria, rol, 
 
                     <ul className="nav nav-tabs" align="center">
                       <li className={classEstado}>
-                        <Link to={`/detalles-materia/${idMateria}`}>Anuncios</Link>
+                        <Link to={`/detalles-materia/${idMateria ? idMateria : null}`}>Anuncios</Link>
                       </li>
                       <li >
-                        <Link to={`/NotasMateria/${idMateria}`}>{rol.alumno === true ? "Tus Notas" : "Notas"}</Link>
+                        <Link to={`/NotasMateria/${idMateria ? idMateria : null}`}>{rol?.alumno === true ? "Tus Notas" : "Notas"}</Link>
                       </li>
                       <li >
-                        <Link to={`/InasistenciaMateria/${idMateria}`}>Inasistencias</Link>
+                        <Link to={`/InasistenciaMateria/${idMateria ? idMateria : null}`}>Inasistencias</Link>
                       </li>
                     </ul>
                   </div>

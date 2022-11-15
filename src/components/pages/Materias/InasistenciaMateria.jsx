@@ -7,7 +7,7 @@ import { getAnunciosMateria } from "../../../actions/anuncios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import HeaderMateria from "./Views/HeaderMateria";
-
+import './styles/Inasistencias.css'
 const InasistenciaMateria = ({
   auth,
   getAnunciosMateria,
@@ -25,9 +25,8 @@ const InasistenciaMateria = ({
     getAnunciosMateria(match.params.id);
   }, [getAnunciosMateria]);
 
-  console.log(anunciosMateria);
+  //console.log(anunciosMateria);
   //console.log(loadingMateria)
-
 
   return (
     <Container>
@@ -60,7 +59,43 @@ const InasistenciaMateria = ({
               />
               <section className="profile-Notas">
                 
-                <h1>InasistenciaMateria</h1>
+              <div className="row d-flex justify-content-center mt-100 mb-100">
+                        
+                                  
+                        <div className="col-lg-6">
+                          {/*  //className="card" */}
+                          <div className="card-body text-center">
+                                <h4 className="card-title m-b-0">TUS INASISTENCIAS EN LA CLASE</h4>
+                                {/* <h6>Tienes {inasistenciaNro} en esta clase</h6> */}
+                            </div>
+                           {materia?.inasistencia.length > 0 && materia?.inasistencia.map((item)=>{
+                            
+                            //console.log(item.idUser)
+                            return(
+                              <div >
+                            
+                            {!auth?.loading && item?.idUser === auth?.user?._id &&(
+                              <>                        
+                              <ul className="list-style-none">
+                                <li className="d-flex no-block card-body">
+                                    <i className="fa fa-check-circle w-30px m-t-5"></i>
+                                    <div>
+                                        <a href="#" className="m-b-0 font-medium p-0" data-abc="true">Falta Registrada</a>
+                                        <span className="text-muted">Fecha: {item.dia} </span>
+                                    </div>
+                                </li>
+                            </ul>
+                              </>
+                            )
+
+                            }
+                            
+                        </div>
+                            )
+                           })
+                           }
+                       </div>
+                       </div>
               </section>
             </div>
           </div>

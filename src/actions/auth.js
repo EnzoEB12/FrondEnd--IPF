@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import { 
     USER_LOADED, AUTH_ERROR, 
-    LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT} from "./types";
+    LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, LIMPIAR_USER} from "./types";
 
 import setAuthToken from '../utils/setAuthToken'
 
@@ -69,6 +69,6 @@ export const loadUser = () => async dispatch => {
 
 export const logout = () => dispatch => {
    dispatch({type : LOGOUT }) 
-   //dispatch({type: CLEAR_PROFILE})
+   dispatch({type: LIMPIAR_USER})
 } 
 

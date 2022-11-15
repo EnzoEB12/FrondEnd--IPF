@@ -13,7 +13,7 @@ const Anuncios = ({ getPosts,eliminarAnuncio, auth, anuncio: { anuncios,loading 
   }, []);
 
   //console.log(anuncios)
-
+  //console.log(anuncios)
   return (
     <Container>
       {
@@ -25,7 +25,7 @@ const Anuncios = ({ getPosts,eliminarAnuncio, auth, anuncio: { anuncios,loading 
               <i className="fas fa user">Estos Anuncios son Globales</i>
             </p>
             {
-              !auth.loading && auth.user.perfiles[0].tipo[0].administrador === true &&
+              !auth?.loading && auth?.user?.perfiles[0].tipo[0].administrador === true &&
               <div class="col-11">
               <div class="text-end upgrade-btn">
                 <Link to="/publicar-anuncio" class="btn btn-success text-white">
@@ -36,7 +36,7 @@ const Anuncios = ({ getPosts,eliminarAnuncio, auth, anuncio: { anuncios,loading 
             
             }
             <hr></hr>
-            { anuncios && anuncios.length > 0 ? (
+            { anuncios && anuncios?.length > 0 ? (
               <div className="row">
                 {anuncios.map((item) => {
                   return (
@@ -49,13 +49,13 @@ const Anuncios = ({ getPosts,eliminarAnuncio, auth, anuncio: { anuncios,loading 
                         />
                         <div className="media-body u-shadow-v18 g-bg-secondary g-pa-30">
                           <div className="g-mb-15">
-                            { !auth.loading && item?.autorNombre._id === auth.user._id &&
+                            { !auth?.loading && item?.autorNombre?._id === auth?.user?._id &&
                               <div class="col-11">
                               <div class="text-end upgrade-btn">
                                 <buttom
                                   class="btn btn-danger text-white"
                                   onClick={(e) => { 
-                                    eliminarAnuncio(item._id)
+                                    eliminarAnuncio(item?._id)
                                     getPosts();
                                   }}
                                 >
@@ -65,11 +65,11 @@ const Anuncios = ({ getPosts,eliminarAnuncio, auth, anuncio: { anuncios,loading 
                             </div>
                             }
                             <h5 className="h5 g-color-gray-dark-v1 mb-0">
-                              {item.autorNombre.nombre}{" "}
-                              {item.autorNombre.apellido}
+                              {item?.autorNombre?.nombre}{" "}
+                              {item?.autorNombre?.apellido}
                             </h5>
                             <span className="g-color-gray-dark-v4 g-font-size-12">
-                              {item.fecha}
+                              {item?.fecha}
                             </span>
                           </div>
                           <br></br>
@@ -79,7 +79,7 @@ const Anuncios = ({ getPosts,eliminarAnuncio, auth, anuncio: { anuncios,loading 
                             : null
                           }
                           <br></br><br></br> */}
-                          <p><strong>{item.contenido}</strong></p>
+                          <p><strong>{item?.contenido}</strong></p>
 
                           <ul className="list-inline d-sm-flex my-0">
                             <li className="list-inline-item g-mr-20">
