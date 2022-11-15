@@ -49,7 +49,7 @@ export const getAnunciosMateria = idMateria => async dispatch => {
 
 
     try {
-        const res = await axios.get(`http://localhost:4000/api//ver-publicaciones-materia/${idMateria}`)
+        const res = await axios.get(`http://localhost:4000/api/ver-publicaciones-materia/${idMateria}`)
         /* console.info('Anuncios', res) */
             //res
         dispatch({
