@@ -12,7 +12,9 @@ import {
     LIMPIAR_ANUNCIOS_MATERIA,
     ELIMINAR_COMENTARIO,
     ERROR_COMENTARIOS,
-    AGREGAR_COMENTARIO
+    AGREGAR_COMENTARIO,
+    LIMPIAR_ALUMNOS,
+    LIMPIAR_MATERIA
 } from "./types"; 
 
 
@@ -20,7 +22,8 @@ import {
 export const getPosts = () => async dispatch => {
 
     dispatch({type: LIMPIAR_ANUNCIO})
-
+    dispatch({type: LIMPIAR_ALUMNOS})
+    dispatch({type: LIMPIAR_MATERIA})
 
     try {
         const res = await axios.get('http://localhost:4000/api/ver-publicaciones-globales')

@@ -1,7 +1,8 @@
 import { 
     GET_ALUMNOS,
-    LIMPIAR_ALUMNO,
-    ERROR_ALUMNO
+    LIMPIAR_ALUMNOS,
+    ERROR_ALUMNO,
+    AGREGAR_ALUMNO
 } from "../actions/types"; 
 
 const initialState = {
@@ -20,19 +21,25 @@ export default function(state = initialState, action){
                 ...state,
                 usuarios: payload,
                 loading: false
-            }   
-        case LIMPIAR_ALUMNO:
+            };  
+        case LIMPIAR_ALUMNOS:
             return {
                 ...state,
-                usuario: null,
+                usuarios: payload,
                 loading: false
-            } 
+            }; 
         case ERROR_ALUMNO:
             return {
                 ...state,
                 error: payload,
                 loading: false
-            }
+            };
+        case AGREGAR_ALUMNO:
+            return {
+                ...state,
+                usuarios: [payload, ...state.usuarios],
+                loading: false
+            };
         default:
             return state         
     }

@@ -15,6 +15,7 @@ import AgregarAnuncio from '../pages/Posts/Formularios/AgregarAnuncio'
 import AnunciosMateria from '../pages/Materias/AnunciosMateria'
 import NotasMateria from '../pages/Materias/NotasMateria'
 import InasistenciaMateria from '../pages/Materias/InasistenciaMateria'
+import AgregarAlumno from '../pages/Usuarios/Formularios/AgregarAlumno'
 //
 
 //redux import
@@ -52,6 +53,7 @@ const Routes = () =>  {
             <PrivateRoute exact path={"/detalles-materia/:id"} component={AnunciosMateria}/>
             <PrivateRoute exact path={"/NotasMateria/:id"} component={NotasMateria}/>
             <PrivateRoute exact path={"/InasistenciaMateria/:id"} component={InasistenciaMateria}/>
+            <PrivateRoute exact path={"/agregar-alumno"} component={AgregarAlumno}/>
             <Route exact path={"/*"} component={Login}/>
           </Switch>
         

@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import react, { useEffect } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { getAlumnos } from "../../../actions/usuarios";
 import Container from "../../layout/Container";
 
@@ -15,12 +16,18 @@ const ListaAlumnos = ({ getAlumnos, alumno: { usuarios } }) => {
             <div className="container-fluid">
             <div class="col-11">
               <div class="text-end upgrade-btn">
-                <a
-                  href="https://www.wrappixel.com/templates/flexy-bootstrap-admin-template/"
-                  class="btn btn-success text-white"
+                <Link className="btn btn-success text-white"
+                  to="/agregar-alumno"
                 >
                   + Alumno
-                </a>
+                </Link>
+                <Link className="btn btn-success text-white mx-4"
+                  to="/agregar-alumno"
+                >
+                  + Notas
+                </Link>
+
+                
               </div>
               
             </div>
@@ -52,20 +59,23 @@ const ListaAlumnos = ({ getAlumnos, alumno: { usuarios } }) => {
                                     <table class="table mb-0 table-hover align-middle text-nowrap">
                                         <thead>
                                         <tr>
+                                                <th class="border-top-0">#</th>
                                                 <th class="border-top-0">Alumno</th>
                                                 <th class="border-top-0">DNI</th>
                                                 <th class="border-top-0">Email</th>
                                                 <th class="border-top-0">Carrera</th>
-                                                <th class="border-top-0">Tickets</th>
-                                                <th class="border-top-0">Sales</th>
+                                                
                                                 <th class="border-top-0">Detalles</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {
-                                                usuarios.map((item) => {
+                                                usuarios?.map((item) => {
                                                     return(
                                                         <tr>
+                                                            <td><div class="m-r-10">
+                                                                <img style={{borderRadius:"100px",width:"50px", height: "50px"}} src={item.fotoURL}></img>
+                                                                </div></td>
                                                         <td>
                                                             <div class="d-flex align-items-center">
                                                                 {/* <div class="m-r-10"><a
@@ -82,8 +92,7 @@ const ListaAlumnos = ({ getAlumnos, alumno: { usuarios } }) => {
                                                         <td>
                                                             <label class="badge bg-success">DS</label>
                                                         </td>
-                                                        <td>#</td>
-                                                        <td>#</td>
+                                                        
                                                         <td>
                                                             <button class="m-b-0 btn btn-warning">Ver</button>
                                                         </td>

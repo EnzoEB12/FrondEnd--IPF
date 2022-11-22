@@ -5,11 +5,14 @@ GET_MATERIAS,
 LIMPIAR_MATERIA,
 ERROR_MATERIA,
 GET_MATERIA_UNICA,
+LIMPIAR_ANUNCIO,
+LIMPIAR_ALUMNOS
 
 } from "./types"; 
 
 export const getMaterias = () => async dispatch => {
-
+    dispatch({type: LIMPIAR_ANUNCIO})
+    dispatch({type: LIMPIAR_ALUMNOS})
     dispatch({type: LIMPIAR_MATERIA})
     try {
         const res = await axios.get('http://localhost:4000/api/ver-materias')

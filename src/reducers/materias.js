@@ -34,6 +34,7 @@ export default function(state = initialState, action){
         case LIMPIAR_MATERIA:
             return {
                 ...state,
+                materias:[],
                 materia: null,
                 loading: false
             } 

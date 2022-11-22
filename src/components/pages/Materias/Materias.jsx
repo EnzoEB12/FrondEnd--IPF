@@ -20,12 +20,7 @@ const Materias = ({ getMaterias, materia: { materias } }) => {
           <div class="container-fostrap">
             <div class="col-11">
               <div class="text-end upgrade-btn">
-                <a
-                  href="https://www.wrappixel.com/templates/flexy-bootstrap-admin-template/"
-                  class="btn btn-success text-white"
-                >
-                  + Materia
-                </a>
+                
               </div>
               
             </div>
